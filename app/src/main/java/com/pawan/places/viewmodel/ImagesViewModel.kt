@@ -1,6 +1,5 @@
 package com.pawan.places.viewmodel
 
-import android.util.Log
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,7 +26,6 @@ class ImagesViewModel(private val repository: ImagesRepository) : ViewModel() {
                 is AppResult.Success -> {
                     imagesList.value = result.successData!!
                     showError.value = null
-//                    Log.e("CALLED :: ",""+imagesList.value?.size)
 
                 }
                 is AppResult.Error -> showError.value = result.exception.message

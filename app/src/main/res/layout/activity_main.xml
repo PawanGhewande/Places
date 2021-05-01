@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<!--    <data>-->
-
-<!--        <import android:type="android.view.View" />-->
-
-<!--        <variable-->
-<!--            android:name="viewModel"-->
-<!--            android:type="com.pawan.places.viewmodel.ImagesViewModel" />-->
-
-<!--    </data>-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/imgLoader"
         android:layout_width="match_parent"

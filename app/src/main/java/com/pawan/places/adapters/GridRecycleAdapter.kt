@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
+import com.bumptech.glide.request.RequestOptions
 import com.pawan.places.R
 import com.pawan.places.db.model.ImageData
 import kotlinx.android.synthetic.main.recycle_item.view.*
@@ -16,9 +17,6 @@ import kotlinx.android.synthetic.main.recycle_item.view.*
 class GridRecycleAdapter(private val c: Context, private val images: List<ImageData>) :
     RecyclerView.Adapter<GridRecycleAdapter.ColorViewHolder>() {
 
-//    init {
-//        images.value = ArrayList()
-//    }
 
     override fun getItemCount(): Int {
         return images.size
@@ -36,6 +34,7 @@ class GridRecycleAdapter(private val c: Context, private val images: List<ImageD
 
         Glide.with(c)
             .load(path.download_url)
+            .placeholder(R.drawable.ic_placeholder)
             .into(holder.imageView)
 
         holder.imageView.setOnClickListener {
