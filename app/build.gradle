@@ -91,7 +91,15 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
 
     //glide
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-     kapt 'com.github.bumptech.glide:compiler:4.9.0'
+//    implementation 'com.github.bumptech.glide:glide:4.9.0'
+//     kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation ("com.github.bumptech.glide:glide:4.9.0") {
+        exclude group: "com.android.support"
+    }
+    kapt 'androidx.annotation:annotation:1.2.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation ("com.github.bumptech.glide:glide:4.9.0@aar") {
+        transitive = true
+    }
 
 }

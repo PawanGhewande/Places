@@ -27,7 +27,7 @@ class ImagesViewModel(private val repository: ImagesRepository) : ViewModel() {
                 is AppResult.Success -> {
                     imagesList.value = result.successData!!
                     showError.value = null
-                    Log.e("CALLED :: ",""+imagesList.value?.size)
+//                    Log.e("CALLED :: ",""+imagesList.value?.size)
 
                 }
                 is AppResult.Error -> showError.value = result.exception.message

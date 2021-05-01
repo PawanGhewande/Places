@@ -13,7 +13,7 @@ import com.pawan.places.db.model.ImageData
 import kotlinx.android.synthetic.main.recycle_item.view.*
 
 
-class GridRecycleAdapter(private val c: Context, private val images: MutableLiveData<List<ImageData>>) :
+class GridRecycleAdapter(private val c: Context, private val images: List<ImageData>) :
     RecyclerView.Adapter<GridRecycleAdapter.ColorViewHolder>() {
 
 //    init {
@@ -21,7 +21,7 @@ class GridRecycleAdapter(private val c: Context, private val images: MutableLive
 //    }
 
     override fun getItemCount(): Int {
-        return images.value!!.size
+        return images.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorViewHolder {
@@ -32,7 +32,7 @@ class GridRecycleAdapter(private val c: Context, private val images: MutableLive
     }
 
     override fun onBindViewHolder(holder: ColorViewHolder, position: Int) {
-        val path = images.value!!.get(position)
+        val path = images.get(position)
 
         Glide.with(c)
             .load(path.download_url)
