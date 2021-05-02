@@ -97,6 +97,8 @@ dependencies {
     //Shimmer/Skeleton effect
     implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
 
-
+    // pagination
+    def paging_version = "2.1.2"
+    implementation "androidx.paging:paging-runtime:$paging_version"
 
 }

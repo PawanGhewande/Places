@@ -1,7 +1,6 @@
 package com.pawan.places
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -18,7 +17,6 @@ class MainActivity : AppCompatActivity() {
 
     private val imagesViewModel by viewModel<ImagesViewModel>()
     lateinit var recyclerView: RecyclerView
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
