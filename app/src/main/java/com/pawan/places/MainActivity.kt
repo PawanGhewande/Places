@@ -27,16 +27,29 @@ class MainActivity : AppCompatActivity() {
         imagesViewModel.getAllImages()
 
         recyclerView = findViewById<RecyclerView>(R.id.imgLoader)
+
         imagesViewModel.imagesList
             .observe(this,
                 Observer<List<ImageData>> { userPost ->
                     recyclerView.apply {
                         layoutManager = GridLayoutManager(this@MainActivity, 2)
                         adapter = GridRecycleAdapter(applicationContext, userPost)
+                        shimmerFrameLayout.stopShimmerAnimation()
+                        shimmerFrameLayout.visibility = View.GONE
+                        recyclerView.visibility = View.VISIBLE
                     }
                     //Log.e("DATA GATHERED :: ", userPost.toString())
                 })
     }
 
+    override fun onResume() {
+        super.onResume()
+        shimmerFrameLayout.startShimmerAnimation()
+    }
+
+    override fun onPause() {
+        shimmerFrameLayout.stopShimmerAnimation()
+        super.onPause()
+    }
 
 }

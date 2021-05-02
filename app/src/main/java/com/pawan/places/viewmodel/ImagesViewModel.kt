@@ -26,7 +26,6 @@ class ImagesViewModel(private val repository: ImagesRepository) : ViewModel() {
                 is AppResult.Success -> {
                     imagesList.value = result.successData!!
                     showError.value = null
-
                 }
                 is AppResult.Error -> showError.value = result.exception.message
             }
