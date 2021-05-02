@@ -2,7 +2,6 @@ package com.pawan.places.repository
 
 
 import android.content.Context
-import android.util.Log
 import com.pawan.places.ImageApi
 import com.pawan.places.db.ImagesDao
 import com.pawan.places.db.model.ImageData
@@ -28,8 +27,10 @@ class ImagesRepositoryImpl(
                 if (response.isSuccessful) {
                     //save the data
                     response.body()?.let {
-                        withContext(Dispatchers.IO) { dao.add(it)
-                        Log.e("ADDED DATA IN DB:: ",""+it.toList())}
+                        withContext(Dispatchers.IO) {
+                            dao.add(it)
+                            //Log.e("ADDED DATA IN DB:: ",""+it.toList())
+                        }
                     }
                     handleSuccess(response)
                 } else {
@@ -42,7 +43,7 @@ class ImagesRepositoryImpl(
             //check in db if the data exists
             val data = getCountriesDataFromCache()
             return if (data.isNotEmpty()) {
-                Log.d("@@ImagesNotInDB", "from db")
+                //Log.d("@@ImagesNotInDB", "from db")
                 AppResult.Success(data)
             } else
             //no network
@@ -55,20 +56,5 @@ class ImagesRepositoryImpl(
             dao.findAll()
         }
     }
-
-/*
-This is another way of implementing where the source of data is db and api but we can always fetch from db
-which will be updated with the latest data from api and also change findAll() return type to
-LiveData<List<CountriesData>>
-*/
-    /* val data = dao.findAll()
-     suspend fun getAllCountriesData() {
-         withContext(Dispatchers.IO) {
-             val response = api.getAllCountries()
-             response.body()?.let {
-                 withContext(Dispatchers.IO) { dao.add(it) }
-             }
-         }
-     }*/
 
 }

@@ -1,10 +1,13 @@
 package com.pawan.places.adapters
 
 import android.content.Context
+import android.preference.PreferenceManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -54,3 +57,4 @@ class GridRecycleAdapter(private val c: Context, private val images: List<ImageD
         val imageView = view.img as ImageView
     }
 }
+
